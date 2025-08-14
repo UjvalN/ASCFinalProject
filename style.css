@@ -1,6 +1,63 @@
 body {
     margin: 0;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Roboto', Arial, sans-serif;
+    background: #f7f7f7;
+    color: #222;
+}
+.banner {
+    position: relative;
+    width: 100%;
+    height: 80vh;
+    min-height: 400px;
+    max-height: 900px;
+    background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1500&q=80') center center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: white;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.banner-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    background: rgba(0,0,0,0.35);
+    padding: 2rem 3rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.15);
+}
+
+.banner-content h1 {
+    font-family: 'Montserrat', 'Roboto', Arial, sans-serif;
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+.banner-content p {
+    font-family: 'Roboto', Arial, sans-serif;
+    font-size: 1.3rem;
+    margin-bottom: 0;
+    letter-spacing: 1px;
+}
+
+.banner-fade {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 120px;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.0) 0%, #f7f7f7 100%);
+    z-index: 3;
+}
+
+main.container {
+    margin-top: -80px;
+    position: relative;
+    z-index: 10;
 }
 
 .main-navbar {
@@ -10,6 +67,7 @@ body {
     background: white;
     padding: 0.75rem 1.5rem;
     border-bottom: 1px solid rgb(94, 96, 99);
+    font-family: 'Montserrat', 'Roboto', Arial, sans-serif;
 }
 
 .logo img {
@@ -25,6 +83,7 @@ body {
     font-size: 1rem;
     font-weight: bold;
     cursor: pointer;
+    font-family: 'Montserrat', 'Roboto', Arial, sans-serif;
 }
 
 .container {
@@ -62,6 +121,7 @@ body {
     min-width: 0;
     height: 100%;
     box-sizing: border-box;
+    border-radius: 10px 0 0 10px;
 }
 
 .divider {
@@ -132,6 +192,7 @@ body {
     border: 1px solid #ddd;
     border-radius: 5px;
     font-family: inherit;
+    font-family: 'Roboto', Arial, sans-serif;
 }
 
 #eventForm textarea {
@@ -146,6 +207,7 @@ body {
     border-radius: 5px;
     cursor: pointer;
     font-weight: bold;
+    font-family: 'Montserrat', 'Roboto', Arial, sans-serif;
 }
 .events-container {
     display: grid;
@@ -188,6 +250,7 @@ body {
     text-shadow: 0 1px 2px rgba(0,0,0,0.15);
     letter-spacing: 1px;
     text-transform: capitalize;
+    font-family: 'Montserrat', 'Roboto', Arial, sans-serif;
 }
 .event-details {
     padding: 1rem;
@@ -203,6 +266,8 @@ body {
     font-size: 1.2rem;
     margin: 0 0 0.5rem 0;
     color: #333;
+    font-family: 'Montserrat', 'Roboto', Arial, sans-serif;
+    font-weight: 700;
 }
 .event-meta
 {
@@ -211,6 +276,7 @@ body {
     color: #666;
     font-size: 0.9rem;
     margin-bottom: 0.5rem;
+    font-family: 'Roboto', Arial, sans-serif;
 }
 .event-description
 {
@@ -221,4 +287,111 @@ body {
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
+    font-family: 'Roboto', Arial, sans-serif;
+    line-clamp: 3;
+}
+.no-events-msg {
+    text-align: center;
+    font-family: 'Montserrat', 'Roboto', Arial, sans-serif;
+    font-size: 1.2rem;
+    margin: 0 auto;
+    color: #4a0353;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 500px;
+}
+body.blur-bg {
+    filter: none !important;
+    transition: none;
+}
+
+body.blur-bg > :not(.rsvp-modal) {
+    filter: none !important;
+    transition: none;
+}
+body.blur-bg .rsvp-modal {
+    filter: none !important;
+}
+
+.rsvp-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.45);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+}
+
+.rsvp-modal-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+    position: relative;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.rsvp-modal-content h2 {
+    font-family: 'Montserrat', 'Roboto', Arial, sans-serif;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+#rsvpForm {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#rsvpForm input,
+#rsvpForm textarea {
+    width: 100%;
+    margin-bottom: 1rem;
+    padding: 0.8rem;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    font-family: 'Roboto', Arial, sans-serif;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+#rsvpNote {
+    resize: vertical;
+    max-height: 120px;
+    min-height: 40px;
+    overflow-y: auto;
+}
+
+#rsvpForm button {
+    background: #4a0353;
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: 'Montserrat', 'Roboto', Arial, sans-serif;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+#closeRsvpModal {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #4a0353;
 }
